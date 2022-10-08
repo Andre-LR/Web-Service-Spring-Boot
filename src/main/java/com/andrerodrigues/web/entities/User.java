@@ -1,11 +1,14 @@
 package com.andrerodrigues.web.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +23,10 @@ public class User implements Serializable{
     private String email;
     private String password;
     private String phone;
+
+    // Associação: Um pedido possui um cliente, um cliente possui N pedidos
+	@OneToMany(mappedBy = "client") // Especificar o atributo da classe associada que corresponde à USER
+	private List<Order> orders = new ArrayList<>();
 
     public User() {
     }
@@ -71,6 +78,10 @@ public class User implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
 	}
 
 	@Override
