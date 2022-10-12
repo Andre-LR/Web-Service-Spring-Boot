@@ -3,6 +3,7 @@ package com.andrerodrigues.web.entities;
 import java.io.Serializable;
 
 import com.andrerodrigues.web.entities.associative_classes.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -10,19 +11,19 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_order_item")
-public class Orderitem implements Serializable {
+public class OrderItem implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @EmbeddedId
-    private OrderItemPK id;
+    private OrderItemPK id = new OrderItemPK();
 
     private int quantity;
     private double price;
 
-    public Orderitem() {
+    public OrderItem() {
     }
 
-    public Orderitem(Order order, Product product, int quantity, double price) {
+    public OrderItem(Order order, Product product, int quantity, double price) {
         super();
         id.setOrder(order);
         id.setProduct(product);
@@ -30,6 +31,7 @@ public class Orderitem implements Serializable {
         this.price = price;
     }
 
+    @JsonIgnore
     public Order getOrder() {
         return id.getOrder();
     }
@@ -78,7 +80,7 @@ public class Orderitem implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Orderitem other = (Orderitem) obj;
+        OrderItem other = (OrderItem) obj;
         if (id == null) {
             if (other.id != null)
                 return false;

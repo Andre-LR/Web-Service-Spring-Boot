@@ -20,7 +20,7 @@ public class CategoryResource {
 	private CategoryService service;
 
 	
-	 // GET /Categorys
+	 // GET /Categories
 	@GetMapping
 	public ResponseEntity<List<Category>> findAll() {
 		List<Category> list = service.findAll();
