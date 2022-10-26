@@ -6,10 +6,10 @@
 Projeto de web services com Spring Boot e JPA implementado com arquitetura baseada em domínio.
 
 ## Modelo conceitual
-![Modelo Conceitual](https://github.com/Andre-LR/Web-Service-Spring-Boot/blob/master/assets/images/Domain.png)
+<img src="https://github.com/Andre-LR/Web-Service-Spring-Boot/blob/master/assets/images/Domain.png" alt="Modelo conceitual" width="800"/>
 
 ## Estrutura de camadas lógicas
-![Estrutura camadas lógicas](https://github.com/Andre-LR/Web-Service-Spring-Boot/blob/master/assets/images/EstruturaLogica.png)
+<img src="https://github.com/Andre-LR/Web-Service-Spring-Boot/blob/master/assets/images/EstruturaLogica.png" alt="Estrutura de camadas lógicas" width="600"/>
 
 # Tecnologias utilizadas
 ## Back end
