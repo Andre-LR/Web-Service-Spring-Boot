@@ -13,6 +13,8 @@ import com.andrerodrigues.web.repositories.UserRepository;
 import com.andrerodrigues.web.services.exceptions.DataBaseException;
 import com.andrerodrigues.web.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class UserService {
 
@@ -43,12 +45,16 @@ public class UserService {
 	}
 
 	public User update(Long id, User obj) {
-		User userDB = repository.getReferenceById(id);
+		try{
+			User userDB = repository.getReferenceById(id);
 
-		userDB.setName(obj.getName());
-		userDB.setEmail(obj.getEmail());
-		userDB.setPhone(obj.getPhone());
+			userDB.setName(obj.getName());
+			userDB.setEmail(obj.getEmail());
+			userDB.setPhone(obj.getPhone());
 
-		return repository.save(userDB);
+			return repository.save(userDB);
+		}catch(EntityNotFoundException e){
+			throw new ResourceNotFoundException(id);
+		}
 	}
 }
