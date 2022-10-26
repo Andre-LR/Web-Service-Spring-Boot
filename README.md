@@ -34,3 +34,10 @@ cd .\Web-Service-Spring-Boot\
 # executar o projeto (Run Java)
 Ctrl + F5 
 ```
+
+# Autor
+
+André Luiz Rodrigues
+
+https://www.linkedin.com/in/andreluizzr
+
